@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pth
+data/train/
+data/val/
+data/test/
+outputs/
+checkpoints/
+.ipynb_checkpoints/
+*.h5
