@@ -32,17 +32,6 @@ super-resolution part of the paper's RIR-G / RaD architecture.
 - Evaluates results using **PSNR** and **SSIM**, implemented from scratch as
   vectorized batch metrics.
 
-## Results
-
-Reproducing the paper's approach on the BraTS MRI dataset, the trained generator
-achieves:
-
-- **PSNR:** 27.43 dB
-- **SSIM:** 0.80476
-
-(measured on held-out MRI test slices, comparing 4x super-resolved output against
-the original high-resolution ground truth)
-
 ## Project structure
 
 ```
@@ -88,12 +77,30 @@ Image -> Input Conv+LeakyReLU
        -> Flatten -> Dense(1024) -> LeakyReLU -> Dense(1) -> relativistic score
 ```
 
+
 ## Trained from scratch, locally
 
 Every result in this repo comes from an actual training run on a personal RTX 4050
 laptop GPU — not just reproduced numbers from the paper. Screenshots below are from
 the real training sessions: GPU pegged at 100% utilization while the generator
 trains, and live epoch-by-epoch loss logs running across 300+ epochs.
+
+![Training run: GPU at 100% utilization while training the generator](assets/training_image_1.jpeg)
+
+![Training run: live epoch-by-epoch loss logs across 300 epochs](assets/training_image_2.jpeg)
+
+## Results
+
+Reproducing the paper's approach on the BraTS MRI dataset, the trained generator
+achieves:
+
+- **PSNR:** 27.43 dB
+- **SSIM:** 0.80476
+
+(measured on held-out MRI test slices, comparing 4x super-resolved output against
+the original high-resolution ground truth)
+
+
 
 ## Sample results
 
